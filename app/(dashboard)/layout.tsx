@@ -25,7 +25,7 @@ export default async function DashboardLayout({
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar abonnementType={profil.abonnement_type} />
       <div className="flex-1 flex flex-col min-w-0">
-        <TopBar email={profil.email} fuldt_navn={profil.fuldt_navn} />
+        <TopBar email={profil.email} fuldt_navn={profil.fuldt_navn} abonnementType={profil.abonnement_type} />
         <main className="flex-1 p-6 max-w-7xl w-full mx-auto">
           {children}
         </main>
