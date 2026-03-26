@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth:*)",
+      "Bash(git --version)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo:*)",
+      "Bash(git remote:*)",
+      "Bash(git push:*)",
+      "Bash(npx:*)",
+      "Bash(npm --version)",
+      "Read(//Users/magnerasmussen/Desktop/Ejendomsinvestering/$HOME/.nvm/versions/**)",
+      "Read(//usr/local/bin/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//Users/magnerasmussen/**)",
+      "Bash(echo $PATH)",
+      "Bash(/opt/homebrew/bin/brew --version)",
+      "Bash(/opt/homebrew/bin/brew install:*)",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
+      "Bash(cp:*)",
+      "Bash(npm install:*)",
+      "Bash(node node_modules/typescript/bin/tsc --noEmit)",
+      "Bash(node /Users/magnerasmussen/Desktop/Ejendomsinvestering/node_modules/typescript/bin/tsc --noEmit)",
+      "Bash(grep -v \"^$\")"
+    ]
+  }
+}
