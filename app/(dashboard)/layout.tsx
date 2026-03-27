@@ -13,11 +13,26 @@ export default async function DashboardLayout({
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/login')
 
-  const { data: profil } = await supabase
+  let { data: profil } = await supabase
     .from('profiles')
     .select('abonnement_type, abonnement_status, fuldt_navn, email')
     .eq('id', user.id)
     .single()
+
+  // Opret profil hvis trigger ikke nåede at køre (fx ved email-bekræftelse)
+  if (!profil) {
+    await supabase.from('profiles').insert({
+      id: user.id,
+      email: user.email ?? '',
+      fuldt_navn: user.user_metadata?.fuldt_navn ?? null,
+    })
+    const { data: nyProfil } = await supabase
+      .from('profiles')
+      .select('abonnement_type, abonnement_status, fuldt_navn, email')
+      .eq('id', user.id)
+      .single()
+    profil = nyProfil
+  }
 
   if (!profil) redirect('/login')
 
